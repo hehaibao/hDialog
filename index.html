@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">  
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">  
+	<meta content="telephone=no,email=no" name="format-detection">	
+	<meta name="author" content="haibao"/>
+	<meta name="url" content="http://smwell.sinaapp.com/"/>
+	<link rel="stylesheet" href="css/animate.css"/> <!-- 动画效果 -->
+	<link rel="stylesheet" href="css/common.css"/><!-- 页面基本样式 -->
+	<title>jQuery+CSS3 多功能表单弹出层插件(v2.0) - by haibao</title>
+</head>
+<body>
+<div id="wrapper">
+	<header><h2>jQuery+CSS3 多功能表单弹出层插件<sup>v2.0</sup> - <small><a target="_blank" href="http://smwell.sinaapp.com/jquery-css3-plugin/">@haibao</a></small></h2></header>
+	<div class="box">
+		<div class="demo">
+			<h3>&gt;&gt; 打开效果示例（需引入<a target="_blank" href="http://daneden.github.io/animate.css/animate.min.css">animate.css</a>动画库）：</h3>
+			<div class="example">
+				<a class="bounceIn dialog">bounceIn</a>
+				<a class="bounceInDown dialog">bounceInDown</a>
+				<a class="bounceInLeft dialog">bounceInLeft</a>
+				<a class="bounceInRight dialog">bounceInRight</a>
+				<a class="bounceInUp dialog">bounceInUp</a>
+				<a class="rollIn dialog">rollIn</a>
+				<a class="fadeIn dialog">fadeIn</a>
+				<a class="fadeInUpBig dialog">fadeInUpBig</a>
+				<a class="lightSpeedIn dialog">lightSpeedIn</a>
+				<a class="flip dialog">flip</a>
+				<a class="flipInX dialog">flipInX</a>
+				<a class="flipInY dialog">flipInY</a>
+				<a class="rotateInDownLeft dialog">rotateInDownLeft</a>
+				<a class="rotateInDownRight dialog">rotateInDownRight</a>
+				<a class="rotateInUpLeft dialog">rotateInUpLeft</a>
+				<a class="rotateInUpRight dialog">rotateInUpRight</a>
+				<a class="rubberBand dialog">rubberBand</a>
+				<a class="zoomIn dialog">zoomIn</a>
+				<a class="zoomInDown dialog">zoomInDown</a>
+				<a class="zoomInLeft dialog">zoomInLeft</a>
+				<a class="zoomInRight dialog">zoomInRight</a>
+				<a class="zoomInUp dialog">zoomInUp</a>
+				<a class="flash dialog">flash</a>
+				<a class="pulse dialog">pulse</a>
+				<a class="swing dialog">swing</a>
+				<a class="tada dialog">tada</a>
+				<a class="wobble dialog">wobble</a>
+				<a class="slideInUp dialog">slideInUp</a>
+				<a class="slideInLeft dialog">slideInLeft</a>
+				<a class="slideInRight dialog">slideInRight</a>
+				<a class="slideInDown dialog">slideInDown</a>
+			</div>
+			
+			<h3>&gt;&gt; 关闭效果示例（需引入<a target="_blank" href="http://daneden.github.io/animate.css/animate.min.css">animate.css</a>动画库）：</h3>
+			<div class="example">
+				<a class="demo16">fadeOut</a>
+				<a class="demo25">fadeOutDown</a>
+				<a class="demo26">fadeOutLeft</a>
+				<a class="demo27">fadeOutRight</a>
+				<a class="demo28">fadeOutUp</a>
+				<a class="demo20">bounceOut</a>
+				<a class="demo21">bounceOutDown</a>
+				<a class="demo22">bounceOutleft</a>
+				<a class="demo23">bounceOutRight</a>
+				<a class="demo24">bounceOutUp</a>
+				<a class="demo29">flipOutX</a>
+				<a class="demo30">flipOutY</a>
+				<a class="demo31">lightSpeedOut</a>
+				<a class="demo32">rotateOut</a>
+				<a class="demo33">rotateOutDownLeft</a>
+				<a class="demo34">rotateOutDownRight</a>
+				<a class="demo35">rotateOutUpLeft</a>
+				<a class="demo36">rotateOutUpRight</a>
+				<a class="demo37">slideOutUp</a>
+				<a class="demo38">slideOutDown</a>
+				<a class="demo39">slideOutLeft</a>
+				<a class="demo40">slideOutRight</a>
+				<a class="demo41">zoomOut</a>
+				<a class="demo42">zoomOutDown</a>
+				<a class="demo43">zoomOutLeft</a>
+				<a class="demo44">zoomOutRight</a>
+				<a class="demo45">zoomOutUp</a>
+				<a class="demo46">rollOut</a>
+			</div>
+			
+			<h3>&gt;&gt; 其他效果示例：</h3>
+			<div class="example">
+				<a class="demo0 wobble">带标题的</a>
+				<a class="demo1">改变宽度</a>
+				<a class="demo2">改变高度</a>
+				<a class="demo3">改变宽和高</a>
+				<a class="demo4">改变位置</a>
+				<a class="demo14">显示前回调</a>
+				<a class="demo15">隐藏后回调</a>
+				<a class="demo5">不重置表单</a>
+				<a class="demo6">遮罩不可点击关闭</a>
+				<a class="demo7">改变弹框背景色</a>
+				<a class="demo8">改变遮罩背景色</a>
+				<a class="demo9">改变关闭按钮背景色</a>
+				<a class="demo18">不显示关闭按钮</a>
+				<a class="demo19">不显示遮罩</a>
+				<a class="demo17 rubberBand">定时关闭</a>
+			</div>
+			
+			<h3>&gt;&gt; 内置扩展方法示例：</h3>
+			<div class="example">
+				<a class="demo10">错误提示</a>
+				<a class="demo11">正确提示</a>
+				<a class="demo47">提示后回调</a>
+				<a class="demo12">显示加载</a>
+				<a class="demo48">confirm</a>
+				<a class="demo49">alert</a>
+			</div>
+			
+			<div class="desc">
+				<h3>使用说明：</h3>
+				<pre>
+	/*
+	 * 以下是单独的调用示例，你只需要自定义弹框的样式即可。
+	 *          - $(element).hDialog(); //默认调用弹框；
+	 *          - $(element).hDialog({box: '#demo'}); //自定义弹框容器ID/Class；
+	 *          - $(element).hDialog({boxBg: '#eeeeee'}); //自定义弹框容器背景；
+	 *          - $(element).hDialog({modalBg: '#eeeeee'}); //自定义遮罩背景颜色；
+	 *          - $(element).hDialog({closeBg: '#eeeeee'}); //自定义关闭按钮背景颜色；
+	 *          - $(element).hDialog({width: 500}); //自定义弹框宽度；
+	 *          - $(element).hDialog({height: 400}); //自定义弹框高度；
+	 *          - $(element).hDialog({position: 'top'}); //top:弹框顶部居中,center:绝对居中,left:顶部居左；
+	 *          - $(element).hDialog({effect: 'fadeOut'}); //弹框关闭效果(结合animate.css里的动画，默认：rotateOut)；
+	 *          - $(element).hDialog({hideTime: 2000}); //弹框定时关闭(默认0:不自动关闭, 以毫秒为单位)
+	 *          - $(element).hDialog({closeHide: false}); //是否隐藏关闭按钮(默认true：不隐藏，false：隐藏)
+	 *          - $(element).hDialog({resetForm: false}); //false:不重置表单,反之重置；
+	 *          - $(element).hDialog({modalHide: false}); //false:点击遮罩背景不关闭弹框,反之关闭；
+	 *          - $(element).hDialog({isOverlay: false}); //是否显示遮罩背景(默认true：显示，false：不显示)
+	 *          - $(element).hDialog({escHide: false}); //false:按ESC不关闭弹框,反之关闭；
+	 * 
+	 * 也可以整个覆盖（tips: 默认的无需写）：  
+	 *          - $(element).hDialog({
+	 *                box: '#demo',
+	 *                boxBg: '#eeeeee',
+	 *                modalBg: '#eeeeee',
+	 *                closeBg: 'rgba(0,0,0,0.6)',
+	 *                width: 500,
+	 *                height: 400,
+	 *                positions: 'top',
+	 *                effect: 'fadeOut',
+	 *                hideTime: 3000,
+	 *                closeHide: false,
+	 *                resetForm: false,
+	 *                isOverlay: false,
+	 *                modalHide: false,
+	 *                escHide: false,
+	 *                beforeShow: function(){ alert('执行回调'); },
+	 *                afterHide: function(){ alert('执行回调'); }
+	 *            });
+	 *
+	 * 下面是简单的扩展方法（以后再慢慢补充吧）：
+	 *          - $.tooltip('错误提示文字'); 或者  $.tooltip('正确提示文字',4000,true,callback);  //内置2种提示风格(参数1为提示文字，参数2为自动关闭时间，参数3：true为正确，false为错误，参数4: 回调函数)
+	 *          - $.showLoading('正在加载...',90,30); 或者  $.hideLoading(); //显示/移除加载(参数1为说明文字，参数2为宽度，参数3为高度，默认宽高为140*48，可不填写)
+	 *          - $.goTop(); //返回顶部,(参数1：和屏幕底部的距离，参数2：和屏幕右侧的距离； PS:自定义一定要加单位，比如px,em, 也可以是百分比哦)
+	 *          - $.dialog('alert','提示','hello'); 或者 $.dialog('confirm','提示','确认么？',0,function(){ alert('ok'); });  //消息框,(参数1：消息框类型(alert/confirm)，参数2：消息框标题；参数3：消息框内容度；参数4：消息框自动关闭时间，以毫秒为单位(默认0：不自动关闭)；参数5: 回调函数)
+	 *          - $.closeDialog(); 或者 $.closeDialog(function(){ alert('ok'); }); //关闭消息框,(参数1：回调函数)
+	 */
+	
+			</pre>
+		</div>
+		</div><!-- demo end -->
+		
+		<!-- 注意：请将要放入弹框的内容放在比如id="HBox"的容器中，然后将box的值换成该ID即可，比如：$(element).hDialog({'box':'#HBox'}); -->
+		<div id="HBox">
+			<form action="" method="post" onsubmit="return false;">
+				<ul class="list">
+					<li>
+						<strong>昵 称  <font color="#ff0000">*</font></strong>
+						<div class="fl"><input type="text" name="nickname" value="" class="ipt nickname" /></div>
+					</li>
+					<li>
+						<strong>手 机 <font color="#ff0000">*</font></strong>
+						<div class="fl"><input type="text" name="phone" value="" class="ipt phone" /></div>
+					</li>
+					<li>
+						<strong>邮 箱 <font color="#ff0000">*</font></strong>
+						<div class="fl"><input type="text" name="email" value="" class="ipt email" /></div>
+					</li>
+					<li>
+						<strong>性 别 <font color="#ff0000">&nbsp;</font></strong>
+						<div class="fl">
+							<label class="mr10"><input type="radio" name="sex" value="1"/>男</label>
+							<label class="mr10"><input type="radio" name="sex" value="2"/>女</label>
+							<label><input type="radio" name="sex" value="3"/>保密</label>
+						</div>
+					</li>
+					<li>
+						<strong>爱 好 <font color="#ff0000">&nbsp;</font></strong>
+						<div class="fl">
+							<label class="mr10"><input type="checkbox" name="like" value="男" />男</label>
+							<label class="mr10"><input type="checkbox" name="like" value="女"/>女</label>
+							<label><input type="checkbox" name="like" value="都喜欢"/>都喜欢</label>
+						</div>
+					</li>
+					<li><input type="submit" value="确认提交" class="submitBtn" /></li>
+				</ul>
+			</form>
+		</div><!-- HBox end -->	
+	</div><!-- box end -->
+</div><!-- wrapper end -->
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="js/jquery.hDialog.js"></script>
+<script>
+$(function(){
+	var $el = $('.dialog');
+	$el.hDialog(); //默认调用
+	
+	//带标题的
+	$('.demo0').hDialog({title: '测试弹框标题',height: 300});
+	
+	//改变宽度
+	$('.demo1').hDialog({width: 500});
+	
+	//改变高度
+	$('.demo2').hDialog({height: 400});
+	
+	//改变宽和高
+	$('.demo3').hDialog({width:600,height: 500});
+	
+	//改变位置
+	$('.demo4').hDialog({positions: 'top'});
+	
+	//不清空表单
+	$('.demo5').hDialog({resetForm: false});
+	
+	//遮罩不可关闭
+	$('.demo6').hDialog({modalHide: false});
+	
+	//改变弹框背景色
+	$('.demo7').hDialog({boxBg: '#eeeeee'});
+	
+	//改变遮罩背景色
+	$('.demo8').hDialog({modalBg: 'rgba(255,255,255,0.7)'});
+	
+	//改变关闭背景色
+	$('.demo9').hDialog({closeBg: '#4A74B5'});
+	
+	//错误文字提示
+	$('.demo10').click(function(){
+		$.tooltip('My God, 出错啦！！！');
+	});
+	
+	//正确文字提示
+	$('.demo11').click(function(){
+		$.tooltip('OK, 操作成功！', 2500, true);
+	});
+	
+	//显示加载
+	$('.demo12').click(function(){
+		//自定义文字： $.showLoading('玩命加载中...');
+		//自定义宽高： $.showLoading('努力加载中...',140,40);
+		$.showLoading();
+	});
+	
+	//显示前的回调方法
+	$('.demo14').hDialog({beforeShow: function(){
+		alert('显示前执行');
+	}});
+	
+	//隐藏后的回调方法
+	$('.demo15').hDialog({afterHide: function(){
+		alert('隐藏后执行');
+	}});
+	
+	//fadeOut关闭效果
+	$('.demo16').hDialog({effect: 'fadeOut'});
+	
+	//bounceOut关闭效果
+	$('.demo20').hDialog({effect: 'bounceOut'});
+	
+	//bounceOutDown关闭效果
+	$('.demo21').hDialog({effect: 'bounceOutDown'});
+	
+	//bounceOutLeft关闭效果
+	$('.demo22').hDialog({effect: 'bounceOutLeft'});
+	
+	//bounceOutRight关闭效果
+	$('.demo23').hDialog({effect: 'bounceOutRight'});
+	
+	//bounceOutUp关闭效果
+	$('.demo24').hDialog({effect: 'bounceOutUp'});
+	
+	//fadeOutDown关闭效果
+	$('.demo25').hDialog({effect: 'fadeOutDown'});
+	
+	//fadeOutLeft关闭效果
+	$('.demo26').hDialog({effect: 'fadeOutLeft'});
+	
+	//fadeOutRight关闭效果
+	$('.demo27').hDialog({effect: 'fadeOutRight'});
+	
+	//fadeOutUp关闭效果
+	$('.demo28').hDialog({effect: 'fadeOutUp'});
+	
+	//flipOutX关闭效果
+	$('.demo29').hDialog({effect: 'flipOutX'});
+	
+	//flipOutY关闭效果
+	$('.demo30').hDialog({effect: 'flipOutY'});
+	
+	//lightSpeedOut关闭效果
+	$('.demo31').hDialog({effect: 'lightSpeedOut'});
+	
+	//rotateOut关闭效果
+	$('.demo32').hDialog({effect: 'rotateOut'});
+	
+	//rotateOutDownLeft关闭效果
+	$('.demo33').hDialog({effect: 'rotateOutDownLeft'});
+	
+	//rotateOutDownRight关闭效果
+	$('.demo34').hDialog({effect: 'rotateOutDownRight'});
+	
+	//rotateOutUpLeft关闭效果
+	$('.demo35').hDialog({effect: 'rotateOutUpLeft'});
+	
+	//rotateOutUpRight关闭效果
+	$('.demo36').hDialog({effect: 'rotateOutUpRight'});
+	
+	//slideOutUp关闭效果
+	$('.demo37').hDialog({effect: 'slideOutUp'});
+	
+	//slideOutDown关闭效果
+	$('.demo38').hDialog({effect: 'slideOutDown'});
+	
+	//slideOutLeft关闭效果
+	$('.demo39').hDialog({effect: 'slideOutLeft'});
+	
+	//slideOutRight关闭效果
+	$('.demo40').hDialog({effect: 'slideOutRight'});
+	
+	//zoomOut关闭效果
+	$('.demo41').hDialog({effect: 'zoomOut'});
+	
+	//zoomOutDown关闭效果
+	$('.demo42').hDialog({effect: 'zoomOutDown'});
+	
+	//zoomOutLeft关闭效果
+	$('.demo43').hDialog({effect: 'zoomOutLeft'});
+	
+	//zoomOutRight关闭效果
+	$('.demo44').hDialog({effect: 'zoomOutRight'});
+	
+	//zoomOutUp关闭效果
+	$('.demo45').hDialog({effect: 'zoomOutUp'});
+	
+	//rollOut关闭效果
+	$('.demo46').hDialog({effect: 'rollOut'});
+	
+	//定时关闭
+	$('.demo17').hDialog({hideTime: 2000});
+	
+	//不显示关闭按钮
+	$('.demo18').hDialog({closeHide: false});
+	
+	//不显示遮罩
+	$('.demo19').hDialog({isOverlay: false});
+	
+	//提示后回调
+	$('.demo47').click(function(){
+		$.tooltip('hello...',1000,true,function(){
+			$.tooltip('执行回调...');
+		});
+	});
+	
+	//confirm
+	$('.demo48').click(function(){
+		$.dialog('confirm','提示','您确认要删除么？',0,function(){ 
+			$.tooltip('删除成功～',2000,true,function(){ 
+				//$.closeDialog(); 
+				$.closeDialog(function(){ alert('还可以回调了。'); }); 
+			});
+		});
+	});
+	
+	//alert
+	$('.demo49').click(function(){
+		//$.dialog('alert','提示','正在处理中...'); 或者 $.dialog('alert','提示','正在处理中...',0); //不自动关闭
+		$.dialog('alert','提示','正在处理中...',2000,function(){ $.tooltip('执行回调...',2000,true); }); //2s自动关闭
+	});
+	
+	//返回顶部
+	$.goTop();
+	
+	//提交并验证表单
+	$('.submitBtn').click(function() {
+		var EmailReg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/; //邮件正则
+		var PhoneReg = /^0{0,1}(13[0-9]|15[0-9]|153|156|18[7-9])[0-9]{8}$/ ; //手机正则
+		var $nickname = $('.nickname');
+		var $email = $('.email'); 
+		var $phone = $('.phone');
+		if($nickname.val() == ''){
+			$.tooltip('昵称还没填呢...'); $nickname.focus();
+		}else if($phone.val() == ''){
+			$.tooltip('手机还没填呢...'); $phone.focus();
+		}else if(!PhoneReg.test($phone.val())){
+			$.tooltip('手机格式错咯...'); $phone.focus();
+		}else if($email.val() == ''){
+			$.tooltip('邮箱还没填呢...'); $email.focus();
+		}else if(!EmailReg.test($email.val())){
+			$.tooltip('邮箱格式错咯...'); $email.focus();
+		}else{
+			$.tooltip('提交成功，2秒后自动关闭',2000,true,function(){
+				//$el.hDialog('close',{box:'#HBox'},'http://smwell.sinaapp.com/');  //也可以加跳转链接哦~
+				$el.hDialog('close',{box:'#HBox'}); 
+			});
+		}
+	});
+	
+	$('body').append('<footer style="width:94%;margin:0 auto;border-top:1px solid #ddd;padding:12px 0;text-align:center;color:#999;">&copy;2014 <a target="_blank" href="http://smwell.sinaapp.com/">haibao</a>, All Rights Reserved. 版权所有，转载请注明出处！</footer>');
+});
+</script>
+</body>
+</html> 
