@@ -7,110 +7,120 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">  
 	<meta content="telephone=no,email=no" name="format-detection">	
 	<meta name="author" content="haibao"/>
-	<meta name="url" content="http://smwell.sinaapp.com/"/>
-	<link rel="stylesheet" href="css/animate.css"/> <!-- 动画效果 -->
+	<meta name="url" content="http://www.hehaibao.com/"/>
+	<link rel="stylesheet" href="css/animate.min.css"/> <!-- 动画效果 -->
 	<link rel="stylesheet" href="css/common.css"/><!-- 页面基本样式 -->
-	<title>jQuery+CSS3 多功能表单弹出层插件(v2.0) - by haibao</title>
+	<title>jQuery+CSS3 多功能弹出层插件(v2.0) - by haibao</title>
 </head>
 <body>
 <div id="wrapper">
-	<header><h2>jQuery+CSS3 多功能表单弹出层插件<sup>v2.0</sup> - <small><a target="_blank" href="http://smwell.sinaapp.com/jquery-css3-plugin/">@haibao</a></small></h2></header>
+	<header><h2>jQuery+CSS3 多功能弹出层插件<sup>v2.0.1</sup> - <small><a target="_blank" href="http://www.hehaibao.com/jquery-css3-plugin/">@haibao</a></small></h2></header>
 	<div class="box">
 		<div class="demo">
-			<h3>&gt;&gt; 打开效果示例（需引入<a target="_blank" href="http://daneden.github.io/animate.css/animate.min.css">animate.css</a>动画库）：</h3>
-			<div class="example">
-				<a class="bounceIn dialog">bounceIn</a>
-				<a class="bounceInDown dialog">bounceInDown</a>
-				<a class="bounceInLeft dialog">bounceInLeft</a>
-				<a class="bounceInRight dialog">bounceInRight</a>
-				<a class="bounceInUp dialog">bounceInUp</a>
-				<a class="rollIn dialog">rollIn</a>
-				<a class="fadeIn dialog">fadeIn</a>
-				<a class="fadeInUpBig dialog">fadeInUpBig</a>
-				<a class="lightSpeedIn dialog">lightSpeedIn</a>
-				<a class="flip dialog">flip</a>
-				<a class="flipInX dialog">flipInX</a>
-				<a class="flipInY dialog">flipInY</a>
-				<a class="rotateInDownLeft dialog">rotateInDownLeft</a>
-				<a class="rotateInDownRight dialog">rotateInDownRight</a>
-				<a class="rotateInUpLeft dialog">rotateInUpLeft</a>
-				<a class="rotateInUpRight dialog">rotateInUpRight</a>
-				<a class="rubberBand dialog">rubberBand</a>
-				<a class="zoomIn dialog">zoomIn</a>
-				<a class="zoomInDown dialog">zoomInDown</a>
-				<a class="zoomInLeft dialog">zoomInLeft</a>
-				<a class="zoomInRight dialog">zoomInRight</a>
-				<a class="zoomInUp dialog">zoomInUp</a>
-				<a class="flash dialog">flash</a>
-				<a class="pulse dialog">pulse</a>
-				<a class="swing dialog">swing</a>
-				<a class="tada dialog">tada</a>
-				<a class="wobble dialog">wobble</a>
-				<a class="slideInUp dialog">slideInUp</a>
-				<a class="slideInLeft dialog">slideInLeft</a>
-				<a class="slideInRight dialog">slideInRight</a>
-				<a class="slideInDown dialog">slideInDown</a>
+			<div class="w50">
+				<h3>打开效果示例（需引入<a target="_blank" href="http://daneden.github.io/animate.css/animate.min.css">animate.css</a>）：</h3>
+				<div class="example">
+					<a class="bounceIn dialog">bounceIn</a>
+					<a class="bounceInDown dialog">bounceInDown</a>
+					<a class="bounceInLeft dialog">bounceInLeft</a>
+					<a class="bounceInRight dialog">bounceInRight</a>
+					<a class="bounceInUp dialog">bounceInUp</a>
+					<a class="rollIn dialog">rollIn</a>
+					<a class="fadeIn dialog">fadeIn</a>
+					<a class="fadeInUpBig dialog">fadeInUpBig</a>
+					<a class="lightSpeedIn dialog">lightSpeedIn</a>
+					<a class="flip dialog">flip</a>
+					<a class="flipInX dialog">flipInX</a>
+					<a class="flipInY dialog">flipInY</a>
+					<a class="rotateInDownLeft dialog">rotateInDownLeft</a>
+					<a class="rotateInDownRight dialog">rotateInDownRight</a>
+					<a class="rotateInUpLeft dialog">rotateInUpLeft</a>
+					<a class="rotateInUpRight dialog">rotateInUpRight</a>
+					<a class="rubberBand dialog">rubberBand</a>
+					<a class="zoomIn dialog">zoomIn</a>
+					<a class="zoomInDown dialog">zoomInDown</a>
+					<a class="zoomInLeft dialog">zoomInLeft</a>
+					<a class="zoomInRight dialog">zoomInRight</a>
+					<a class="zoomInUp dialog">zoomInUp</a>
+					<a class="flash dialog">flash</a>
+					<a class="pulse dialog">pulse</a>
+					<a class="swing dialog">swing</a>
+					<a class="tada dialog">tada</a>
+					<a class="jello dialog">jello</a>
+					<a class="shake dialog">shake</a>
+					<a class="wobble dialog">wobble</a>
+					<a class="slideInUp dialog">slideInUp</a>
+					<a class="slideInLeft dialog">slideInLeft</a>
+					<a class="slideInRight dialog">slideInRight</a>
+					<a class="slideInDown dialog">slideInDown</a>
+				</div>
+			</div>
+			<div class="w50">
+				<h3>关闭效果示例（需引入<a target="_blank" href="http://daneden.github.io/animate.css/animate.min.css">animate.css</a>）：</h3>
+				<div class="example">
+					<a class="demo16">fadeOut</a>
+					<a class="demo25">fadeOutDown</a>
+					<a class="demo26">fadeOutLeft</a>
+					<a class="demo27">fadeOutRight</a>
+					<a class="demo28">fadeOutUp</a>
+					<a class="demo20">bounceOut</a>
+					<a class="demo21">bounceOutDown</a>
+					<a class="demo22">bounceOutleft</a>
+					<a class="demo23">bounceOutRight</a>
+					<a class="demo24">bounceOutUp</a>
+					<a class="demo29">flipOutX</a>
+					<a class="demo30">flipOutY</a>
+					<a class="demo31">lightSpeedOut</a>
+					<a class="demo32">rotateOut</a>
+					<a class="demo33">rotateOutDownLeft</a>
+					<a class="demo34">rotateOutDownRight</a>
+					<a class="demo35">rotateOutUpLeft</a>
+					<a class="demo36">rotateOutUpRight</a>
+					<a class="demo37">slideOutUp</a>
+					<a class="demo38">slideOutDown</a>
+					<a class="demo39">slideOutLeft</a>
+					<a class="demo40">slideOutRight</a>
+					<a class="demo41">zoomOut</a>
+					<a class="demo42">zoomOutDown</a>
+					<a class="demo43">zoomOutLeft</a>
+					<a class="demo44">zoomOutRight</a>
+					<a class="demo45">zoomOutUp</a>
+					<a class="demo46">rollOut</a>
+				</div>
 			</div>
 			
-			<h3>&gt;&gt; 关闭效果示例（需引入<a target="_blank" href="http://daneden.github.io/animate.css/animate.min.css">animate.css</a>动画库）：</h3>
-			<div class="example">
-				<a class="demo16">fadeOut</a>
-				<a class="demo25">fadeOutDown</a>
-				<a class="demo26">fadeOutLeft</a>
-				<a class="demo27">fadeOutRight</a>
-				<a class="demo28">fadeOutUp</a>
-				<a class="demo20">bounceOut</a>
-				<a class="demo21">bounceOutDown</a>
-				<a class="demo22">bounceOutleft</a>
-				<a class="demo23">bounceOutRight</a>
-				<a class="demo24">bounceOutUp</a>
-				<a class="demo29">flipOutX</a>
-				<a class="demo30">flipOutY</a>
-				<a class="demo31">lightSpeedOut</a>
-				<a class="demo32">rotateOut</a>
-				<a class="demo33">rotateOutDownLeft</a>
-				<a class="demo34">rotateOutDownRight</a>
-				<a class="demo35">rotateOutUpLeft</a>
-				<a class="demo36">rotateOutUpRight</a>
-				<a class="demo37">slideOutUp</a>
-				<a class="demo38">slideOutDown</a>
-				<a class="demo39">slideOutLeft</a>
-				<a class="demo40">slideOutRight</a>
-				<a class="demo41">zoomOut</a>
-				<a class="demo42">zoomOutDown</a>
-				<a class="demo43">zoomOutLeft</a>
-				<a class="demo44">zoomOutRight</a>
-				<a class="demo45">zoomOutUp</a>
-				<a class="demo46">rollOut</a>
+			<div class="w50">
+				<h3>其他效果示例：</h3>
+				<div class="example">
+					<a class="demo0 wobble">带标题的</a>
+					<a class="demo1">改变宽度</a>
+					<a class="demo2">改变高度</a>
+					<a class="demo3">改变宽和高</a>
+					<a class="demo4 bounceInUp">改变位置</a>
+					<a class="demo14">显示前回调</a>
+					<a class="demo15">隐藏后回调</a>
+					<a class="demo5">不重置表单</a>
+					<a class="demo6">遮罩不可点击关闭</a>
+					<a class="demo7">改变弹框背景色</a>
+					<a class="demo8">改变遮罩背景色</a>
+					<a class="demo9">改变关闭按钮背景色</a>
+					<a class="demo18">不显示关闭按钮</a>
+					<a class="demo19">不显示遮罩</a>
+					<a class="demo17 rubberBand">定时关闭</a>
+					<a class="demo50">iframe框架</a>
+				</div>
 			</div>
 			
-			<h3>&gt;&gt; 其他效果示例：</h3>
-			<div class="example">
-				<a class="demo0 wobble">带标题的</a>
-				<a class="demo1">改变宽度</a>
-				<a class="demo2">改变高度</a>
-				<a class="demo3">改变宽和高</a>
-				<a class="demo4">改变位置</a>
-				<a class="demo14">显示前回调</a>
-				<a class="demo15">隐藏后回调</a>
-				<a class="demo5">不重置表单</a>
-				<a class="demo6">遮罩不可点击关闭</a>
-				<a class="demo7">改变弹框背景色</a>
-				<a class="demo8">改变遮罩背景色</a>
-				<a class="demo9">改变关闭按钮背景色</a>
-				<a class="demo18">不显示关闭按钮</a>
-				<a class="demo19">不显示遮罩</a>
-				<a class="demo17 rubberBand">定时关闭</a>
-			</div>
-			
-			<h3>&gt;&gt; 内置扩展方法示例：</h3>
-			<div class="example">
-				<a class="demo10">错误提示</a>
-				<a class="demo11">正确提示</a>
-				<a class="demo47">提示后回调</a>
-				<a class="demo12">显示加载</a>
-				<a class="demo48">confirm</a>
-				<a class="demo49">alert</a>
+			<div class="w50">
+				<h3>内置扩展方法示例：</h3>
+				<div class="example">
+					<a class="demo10">错误提示</a>
+					<a class="demo11">正确提示</a>
+					<a class="demo47">提示后回调</a>
+					<a class="demo12">显示加载</a>
+					<a class="demo48">confirm</a>
+					<a class="demo49">alert</a>
+				</div>
 			</div>
 			
 			<div class="desc">
@@ -125,14 +135,16 @@
 	 *          - $(element).hDialog({closeBg: '#eeeeee'}); //自定义关闭按钮背景颜色；
 	 *          - $(element).hDialog({width: 500}); //自定义弹框宽度；
 	 *          - $(element).hDialog({height: 400}); //自定义弹框高度；
-	 *          - $(element).hDialog({position: 'top'}); //top:弹框顶部居中,center:绝对居中,left:顶部居左；
-	 *          - $(element).hDialog({effect: 'fadeOut'}); //弹框关闭效果(结合animate.css里的动画，默认：rotateOut)；
+	 *          - $(element).hDialog({position: 'top'}); //弹框位置(默认center：居中，top：顶部居中，left：顶部居左，bottom：底部居右)
+	 *          - $(element).hDialog({effect: 'fadeOut'}); //弹框关闭效果(结合animate.css里的动画，默认：zoomOut)；
 	 *          - $(element).hDialog({hideTime: 2000}); //弹框定时关闭(默认0:不自动关闭, 以毫秒为单位)
 	 *          - $(element).hDialog({closeHide: false}); //是否隐藏关闭按钮(默认true：不隐藏，false：隐藏)
 	 *          - $(element).hDialog({resetForm: false}); //false:不重置表单,反之重置；
 	 *          - $(element).hDialog({modalHide: false}); //false:点击遮罩背景不关闭弹框,反之关闭；
 	 *          - $(element).hDialog({isOverlay: false}); //是否显示遮罩背景(默认true：显示，false：不显示)
 	 *          - $(element).hDialog({escHide: false}); //false:按ESC不关闭弹框,反之关闭；
+	 *          - $(element).hDialog({autoShow: false}); //是否页面加载完成后自动弹出(默认false点击弹出，true：自动弹出)
+	 *          - $(element).hDialog({types:2,iframeSrc:'http://css.doyoe.com/',iframeId:'iframeHBox',width:960,height:600}); //调用框架
 	 * 
 	 * 也可以整个覆盖（tips: 默认的无需写）：  
 	 *          - $(element).hDialog({
@@ -150,6 +162,10 @@
 	 *                isOverlay: false,
 	 *                modalHide: false,
 	 *                escHide: false,
+	 *                autoShow: false,
+	 *                types: 1,
+	 *                iframeSrc: '',
+	 *                iframeId: 'iframeHBox',
 	 *                beforeShow: function(){ alert('执行回调'); },
 	 *                afterHide: function(){ alert('执行回调'); }
 	 *            });
@@ -205,12 +221,40 @@
 	</div><!-- box end -->
 </div><!-- wrapper end -->
 
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-<script src="js/jquery.hDialog.js"></script>
+<!-- 自动弹出层内容 -->
+<div id="autoShow">
+	<form action="" method="post" onsubmit="return false;">
+		<ul class="list">
+			<li>
+				<strong>昵 称  <font color="#ff0000">*</font></strong>
+				<div class="fl"><input type="text" name="nickname" value="" class="ipt nickname" /></div>
+			</li>
+			<li>
+				<strong>手 机 <font color="#ff0000">*</font></strong>
+				<div class="fl"><input type="text" name="phone" value="" class="ipt phone" /></div>
+			</li>
+			<li>
+				<strong>性 别 <font color="#ff0000">&nbsp;</font></strong>
+				<div class="fl">
+					<label class="mr10"><input type="radio" name="sex" value="1"/>男</label>
+					<label class="mr10"><input type="radio" name="sex" value="2"/>女</label>
+					<label><input type="radio" name="sex" value="3"/>保密</label>
+				</div>
+			</li>
+			<li><input type="submit" value="确认提交" class="submitBtn" /></li>
+		</ul>
+	</form>
+</div>
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.hDialog.min.js"></script>
 <script>
 $(function(){
 	var $el = $('.dialog');
 	$el.hDialog(); //默认调用
+	
+	//页面加载完成后自动执行
+	$('#autoShow').hDialog({title:'页面加载完成后自动执行',autoShow: true});
 	
 	//带标题的
 	$('.demo0').hDialog({title: '测试弹框标题',height: 300});
@@ -225,7 +269,7 @@ $(function(){
 	$('.demo3').hDialog({width:600,height: 500});
 	
 	//改变位置
-	$('.demo4').hDialog({positions: 'top'});
+	$('.demo4').hDialog({positions: 'bottom',effect: 'slideOutDown'});
 	
 	//不清空表单
 	$('.demo5').hDialog({resetForm: false});
@@ -385,6 +429,9 @@ $(function(){
 		$.dialog('alert','提示','正在处理中...',2000,function(){ $.tooltip('执行回调...',2000,true); }); //2s自动关闭
 	});
 	
+	//iframe
+	$('.demo50').hDialog({types:2,iframeSrc:'http://css.doyoe.com/',iframeId:'iframeHBox',width:960,height:600});
+	
 	//返回顶部
 	$.goTop();
 	
@@ -407,13 +454,12 @@ $(function(){
 			$.tooltip('邮箱格式错咯...'); $email.focus();
 		}else{
 			$.tooltip('提交成功，2秒后自动关闭',2000,true,function(){
-				//$el.hDialog('close',{box:'#HBox'},'http://smwell.sinaapp.com/');  //也可以加跳转链接哦~
-				$el.hDialog('close',{box:'#HBox'}); 
+				$el.hDialog('close',{box:'#HBox'});
 			});
 		}
 	});
 	
-	$('body').append('<footer style="width:94%;margin:0 auto;border-top:1px solid #ddd;padding:12px 0;text-align:center;color:#999;">&copy;2014 <a target="_blank" href="http://smwell.sinaapp.com/">haibao</a>, All Rights Reserved. 版权所有，转载请注明出处！</footer>');
+	$('body').append('<footer style="width:94%;margin:0 auto;border-top:1px solid #ddd;padding:12px 0;text-align:center;color:#999;">&copy;2014 <a target="_blank" href="http://www.hehaibao.com/">haibao</a>, All Rights Reserved. 版权所有，转载请注明出处！</footer>');
 });
 </script>
 </body>
