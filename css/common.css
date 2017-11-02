@@ -1,8 +1,6 @@
-@CHARSET "UTF-8";
 /* 
  *  @Description: common css
  *  @author: haibao
- *  @Update: 2014-10-23
  */
 body{font:.85em/1.4 "微软雅黑","Microsoft Yahei",'Arial','san-serif';color:#666;margin:0;padding:0}
 img{max-width:100%;height:auto;width:auto9;-ms-interpolation-mode:bicubic;vertical-align:middle}

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,11 +11,11 @@
 	<meta name="url" content="http://www.hehaibao.com/"/>
 	<link rel="stylesheet" href="css/animate.min.css"/> <!-- 动画效果 -->
 	<link rel="stylesheet" href="css/common.css"/><!-- 页面基本样式 -->
-	<title>jQuery+CSS3 多功能弹出层插件(v2.0) - by haibao</title>
+	<title>jQuery+CSS3 多功能弹出层插件(v2.0.3) - by haibao</title>
 </head>
 <body>
 <div id="wrapper">
-	<header><h2>jQuery+CSS3 多功能弹出层插件<sup>v2.0.1</sup> - <small><a target="_blank" href="http://www.hehaibao.com/jquery-css3-plugin/">@haibao</a></small></h2></header>
+	<header><h2>jQuery+CSS3 多功能弹出层插件<sup>v2.0.3</sup> - <small><a target="_blank" href="http://www.hehaibao.com/jquery-css3-plugin/">@haibao</a></small></h2></header>
 	<div class="box">
 		<div class="demo">
 			<div class="w50">
@@ -138,6 +139,7 @@
 	 *          - $(element).hDialog({isOverlay: false}); //是否显示遮罩背景(默认true：显示，false：不显示)
 	 *          - $(element).hDialog({escHide: false}); //false:按ESC不关闭弹框,反之关闭；
 	 *          - $(element).hDialog({autoShow: false}); //是否页面加载完成后自动弹出(默认false点击弹出，true：自动弹出)
+	 *          - $(element).hDialog({autoHide: true}); //是否页面加载完成后自动关闭弹出(默认false: 不关闭，true: 关闭)
 	 *          - $(element).hDialog({types:2,iframeSrc:'http://css.doyoe.com/',iframeId:'iframeHBox',width:960,height:600}); //调用框架
 	 * 
 	 * 也可以整个覆盖（tips: 默认的无需写）：  
@@ -154,6 +156,7 @@
 	 *                modalHide: false,
 	 *                escHide: false,
 	 *                autoShow: false,
+	 *                autoHide: false,
 	 *                types: 1,
 	 *                iframeSrc: '',
 	 *                iframeId: 'iframeHBox',
@@ -213,13 +216,18 @@
 </div><!-- wrapper end -->
 
 <script src="js/jquery-1.9.1.min.js"></script>
-<script src="js/jquery.hDialog.js"></script>
+<script src="js/jquery.hDialog.min.js"></script>
 <script>
 $(function(){
 	$('.dialog').hDialog(); //打开效果调用
 	
 	//页面加载完成后自动执行
 	$('#HBox').hDialog({title:'页面加载完成后自动执行', autoShow: true, height: 350});
+
+	//demo：点击任何元素 自动关闭
+	// $('body').on('click', function(){
+	// 	$('#HBox').hDialog({autoHide: true});
+	// });
 	
 	//带标题的
 	$('.demo0').hDialog({title: '测试弹框标题',height: 300, isOverlay: false});
