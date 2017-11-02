@@ -63,7 +63,7 @@
 			m = "" + parseInt(-(h/2)) + 'px 0 0 ' + parseInt(-(w/2)) + "px";
         		
 			//显示前的回调
-			_self.beforeShow && this.fire.call(this, _self.beforeShow); 
+			_self.beforeShow && this.fire.call(this, _self.beforeShow, event); 
 			
 			//弹框位置
 			switch (_self.positions) {
@@ -122,7 +122,7 @@
 			}, parseInt(_self.hideTime));
         		
 			//支持ESC关闭
-			_self.escHide && $D.on('keyup', function() {
+			_self.escHide && $D.off('keyup').on('keyup', function() {
 				if(event.keyCode === 27) {
 					methods.close();
 				} 
@@ -137,7 +137,7 @@
 				$o.removeAttr('style').hide();
 			}, 300);
 			$('#HOverlay, #HTitle, #'+_self.iframeId).remove();
-			_self.afterHide && this.fire.call(this, _self.afterHide);
+			_self.afterHide && this.fire.call(this, _self.afterHide, event);
 	    },
 	    fire: function(event, data) { 
 			if($.isFunction(event)) {
