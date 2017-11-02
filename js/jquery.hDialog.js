@@ -193,15 +193,27 @@
 		 * @param callback : 回调函数
 		 */
         tooltip: function(t1, t2, t3, callback) {
+			var tip = '', tipClassName = '', tipBgColor = '';
 			t1 = t1 ? t1 : 'Error...'; 	
-			t2 = t2 ? parseInt(t2) : 2500;
-			var tip = t3 ? '<div class="HTooltip bounceInDown animated" style="width:280px;padding:10px;text-align:center;background-color:#5cb85c;color:#fff;position:fixed;top:10px;left:50%;z-index:100001;margin-left:-150px;box-shadow:1px 1px 5px #333;-webkit-box-shadow:1px 1px 5px #333;">'+t1+'</div>' : '<div class="HTooltip shake animated" style="width:280px;padding:10px;text-align:center;background-color:#D84C31;color:#fff;position:fixed;top:10px;left:50%;z-index:100001;margin-left:-150px;box-shadow:1px 1px 5px #333;-webkit-box-shadow:1px 1px 5px #333;">'+t1+'</div>';
-			$('.HTooltip').remove();
-			$B.stop().append(tip);
-			clearTimeout(t);
-			var t = setTimeout(function() { 
-				$('.HTooltip').remove(); 
-				callback && methods.fire.call(this, callback); //隐藏后的回调方法 
+			t2 = t2 ? parseInt(t2) : 3000;
+			if(t3) {
+				tipClassName = 'fadeInDown';
+				tipBgColor = '#5cb85c';
+			} else {
+				tipClassName = 'shake';
+				tipBgColor = '#D84C31';
+			}
+			tip = '<div class="HTooltip animated '+tipClassName+'" style="width:280px;padding:10px;text-align:center;background-color:'+tipBgColor+';color:#fff;position:fixed;top:10px;left:50%;z-index:100001;margin-left:-150px;box-shadow:1px 1px 5px #333;-webkit-box-shadow:1px 1px 5px #333;">'+t1+'</div>';
+			if($B.find(".toast-box").length == 0) {
+				$B.stop().append(tip);
+			} else {
+				$('.HTooltip').remove();
+			}
+			setTimeout(function() { 
+				setTimeout(function() {
+					$('.HTooltip').remove(); 
+					callback && methods.fire.call(this, callback); //隐藏后的回调方法
+				}, 1000);
 			}, t2);
         },
         /**
