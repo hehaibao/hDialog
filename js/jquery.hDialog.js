@@ -3,7 +3,6 @@
 * jQuery hDialog - 多功能弹出层插件
 +-------------------------------------------------------------------
 * @version 2.0.3
-* @update 2017.11.02
 * @author haibao <hhb219@163.com> <http://www.hehaibao.com/>
 +-------------------------------------------------------------------
 */
@@ -49,18 +48,15 @@
 						methods.open(T); 
 					});
 				}
-				if(_O.autoHide) {
-					methods.close();
-				}
+				_O.autoHide && methods.close();
 			});
         },
         open: function(T) {
-			var _self = this.op;
-			var w, h, t, l, m, headTpl = overlayTpl = iframeTpl = '', 
-			$o = _self.autoShow ? T : $(_self.box);
-			w = parseInt(_self.width), 
-			h = parseInt(_self.height), 
-			m = "" + parseInt(-(h/2)) + 'px 0 0 ' + parseInt(-(w/2)) + "px";
+			var _self = this.op, w, h, t, l, m, headTpl = overlayTpl = iframeTpl = '', 
+				$o = _self.autoShow ? T : $(_self.box),
+				w = parseInt(_self.width), 
+				h = parseInt(_self.height), 
+				m = "" + parseInt(-(h/2)) + 'px 0 0 ' + parseInt(-(w/2)) + "px";
         		
 			//显示前的回调
 			_self.beforeShow && this.fire.call(this, _self.beforeShow, event); 
@@ -123,9 +119,8 @@
         		
 			//支持ESC关闭
 			_self.escHide && $D.off('keyup').on('keyup', function() {
-				if(event.keyCode === 27) {
-					methods.close();
-				} 
+				var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+				keyCode === 27 && methods.close();
 			});
         },
 	    close: function() {
