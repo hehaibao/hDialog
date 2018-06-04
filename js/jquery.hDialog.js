@@ -87,8 +87,11 @@
 			
 			//弹框标题和关闭按钮
 			if(_self.title != '' && !$('#HTitle').length) {
-				headTpl = '<div id="HTitle">'+_self.title+'</div> <a id="HCloseBtn" title="关闭"><span>&times;</span></a>';
+				headTpl = '<div id="HTitle">'+_self.title+'</div>';
 			}
+
+			//将关闭按钮一直展示出来 fixed issue #3
+			headTpl += '<a id="HCloseBtn" title="关闭"><span>&times;</span></a>';
 			
 			//iframe框架
 			if(_self.types == 2) {
