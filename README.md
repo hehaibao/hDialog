@@ -4,14 +4,17 @@ jQuery.hDialog.js 是一个用来创建一个模态窗口的 jQuery 插件，基
 
 ### 演示地址：
 
-http://www.hehaibao.com/uploads/hDialog/index.html
+http://hehaibao.github.io/hDialog/index.html
+
+http://www.hehaibao.com/uploads/hDialog/index.html [Tips: 博客更新可能不及时, 以GitHub上为准~]
   
 ### 使用说明：
 
 1 引入jQuery和jQuery.hDialog.min.js
 
 2 页面中，请将要放入弹框的内容放在比如id="HBox"的容器中，然后将box的值换成该ID即可；
-  Example：  $(element).hDialog({'box':'#HBox'});
+
+  举个🌰：  $(element).hDialog({'box':'#HBox'});
 
 ### 更多示例：
 
