@@ -1,11 +1,19 @@
-# hDialog
-jQuery+CSS3 多功能表单弹出层插件
+# hDialog - jQuery+CSS3 多功能表单弹出层插件
 
 jQuery.hDialog.js 是一个用来创建一个模态窗口的 jQuery 插件，基于 CSS3 过渡实现。您可以利用 Animate.css 中的转换或自行创建自己的过渡效果。支持 Firefox、Chrome、Safari、Opera 和 IE 10+ 浏览器。
 
-  在线演示地址：http://www.hehaibao.com/uploads/hDialog/index.html
+### 演示地址：
+
+http://www.hehaibao.com/uploads/hDialog/index.html
   
 ### 使用说明：
+
+1 引入jQuery和jQuery.hDialog.min.js
+
+2 页面中，请将要放入弹框的内容放在比如id="HBox"的容器中，然后将box的值换成该ID即可；
+  Example：  $(element).hDialog({'box':'#HBox'});
+
+### 更多示例：
 
 	/*
 	 * 以下是单独的调用示例，你只需要自定义弹框的样式即可。
@@ -55,7 +63,9 @@ jQuery.hDialog.js 是一个用来创建一个模态窗口的 jQuery 插件，基
 	 *          - $.closeDialog(); 或者 $.closeDialog(function(){ alert('ok'); }); //关闭消息框,(参数1：回调函数)
 	 */
 
-插件依赖：
+
+### 插件依赖：
+
 -------
 
     jQuery.hDialog.js depends on the following libraries:
@@ -64,3 +74,18 @@ jQuery.hDialog.js 是一个用来创建一个模态窗口的 jQuery 插件，基
 
 
 * [animate.css, by Daniel Eden](http://daneden.github.io/animate.css/)
+
+
+### 更新日志：
+
+   2018-06-26： 增加AMD支持，修复已知bug
+   
+   ...
+
+### 写在最后
+
+感谢jQuery和animate.css的开发人员!
+
+如果这款弹出层插件对您有帮助，请star支持一下。欢迎pr, 谢谢~
+
+
