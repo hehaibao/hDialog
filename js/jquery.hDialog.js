@@ -4,19 +4,32 @@
 +-------------------------------------------------------------------
 * @version 2.0.3
 * @author haibao <hhb219@163.com> <http://www.hehaibao.com/>
+* github [https://github.com/hehaibao/hDialog]
+* MIT
 +-------------------------------------------------------------------
 */
-;(function($, window, document, undefined) {	
+;(function(factory){
+    if(typeof define === 'function' && define.amd) { // AMD
+        // you may need to change `define([------>'jquery'<------], factory)` 
+        // if you use zepto, change it rely name, such as `define(['zepto'], factory)`
+        define(['jquery'], factory)
+        // define(['zepto'], factory)
+    } else { // Global
+        factory(window.jQuery || window.Zepto)
+    }
+})(function($,undefined) {
 	var $D = $(document), 
 		$W = $(window), 
-		$B = $('body');
+		$B = $('body'),
+		$el,
+		timer = null;
 	var methods = {
 		op: {},
         init: function(options) {
            	return this.each(function() {
-				var T = $(this), 
-					_O = T.data('hdialog'),
-					defaults = {
+				$el = $(this);
+				var _O = null;
+				var defaults = {
 						title: '',              	//弹框标题
 						box: '#HBox',               //弹框默认选择器
 						boxBg: '#ffffff',           //弹框默认背景颜色
@@ -38,22 +51,28 @@
 						afterHide: function() { }   //隐藏后的回调方法
 					};
 				_O = $.extend({}, defaults, options);
-				T.data('hdialog', _O);
-				if(_O.autoShow) {
+
+				var _open = function(){
 					methods.op = _O;
-					methods.open(T);
+					methods.open();
+				}
+				if(_O.autoShow) {
+					//自动弹出
+					_open();
 				} else {
-					T.off('click').on('click', function(event) {
-						methods.op = _O;
-						methods.open(T); 
+					//绑定click事件
+					$el.off('click').on('click', function(event) {
+						_open();
 					});
 				}
+
+				//自动关闭
 				_O.autoHide && methods.close();
 			});
         },
-        open: function(T) {
-			var _self = this.op, w, h, t, l, m, headTpl = overlayTpl = iframeTpl = '', 
-				$o = _self.autoShow ? T : $(_self.box),
+        open: function() {
+			var _self = this.op, w, h, t, l, m, headTpl = '', overlayTpl = '', iframeTpl = '', 
+				$o = _self.autoShow ? $el : $(_self.box),
 				w = parseInt(_self.width), 
 				h = parseInt(_self.height), 
 				m = "" + parseInt(-(h/2)) + 'px 0 0 ' + parseInt(-(w/2)) + "px";
@@ -94,7 +113,7 @@
 			headTpl += '<a id="HCloseBtn" title="关闭"><span>&times;</span></a>';
 			
 			//iframe框架
-			if(_self.types == 2) {
+			if(_self.types == 2 && _self.iframeSrc != '') {
 				iframeTpl =  '<iframe id="'+_self.iframeId+'" width="'+w+'" height="'+h+'" frameborder="0" scrolling="auto" src="'+_self.iframeSrc+'"></iframe>';
 			}
 			
@@ -108,7 +127,7 @@
 				margin: m,
 				width: w,
 				height: h
-			}).removeAttr('class').addClass('animated '+T.attr("class")).prepend(headTpl+iframeTpl).show();
+			}).removeAttr('class').addClass('animated '+$el.attr("class")).prepend(headTpl+iframeTpl).show();
         
 			//默认关闭
 			$o.modalHide ? $('#HOverlay, #HCloseBtn') : $('#HCloseBtn').off('click').on('click', function() { 
@@ -116,9 +135,11 @@
 			});
 			
 			//定时关闭
-			_self.hideTime != 0 && setTimeout(function() {
-				methods.close(); 
-			}, parseInt(_self.hideTime));
+			if(_self.hideTime != 0) {
+				timer = setTimeout(function() {
+					methods.close(); 
+				}, parseInt(_self.hideTime));
+			}
         		
 			//支持ESC关闭
 			_self.escHide && $D.off('keyup').on('keyup', function() {
@@ -128,14 +149,18 @@
         },
 	    close: function() {
 			// 关闭弹窗
-			var _self = this.op, 
+			var _this = this,
+				_self = _this.op, 
 				$o = $(_self.box);
+			clearTimeout(timer); //清除定时器
 			$o.removeAttr('class').addClass('animated '+_self.effect);
 			$o.hasClass(_self.effect) && setTimeout(function() { 
 				$o.removeAttr('style').hide();
 			}, 300);
 			$('#HOverlay, #HTitle, #'+_self.iframeId).remove();
-			_self.afterHide && this.fire.call(this, _self.afterHide, event);
+			setTimeout(function(){
+				_self.afterHide && _this.fire.call(_this, _self.afterHide, event);
+			}, 310);
 	    },
 	    fire: function(event, data) { 
 			if($.isFunction(event)) {
@@ -156,5 +181,4 @@
 			return this; 
 		}
 	};
-	
-})(jQuery, window, document);
+});
