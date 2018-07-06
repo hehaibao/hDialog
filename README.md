@@ -81,7 +81,15 @@ http://www.hehaibao.com/uploads/hDialog/index.html [Tips: 博客更新可能不�
 
 ### 更新日志：
 
-   2018-06-26： 增加AMD支持，修复已知bug
+   2018-07-06：
+     
+     1.兼容IE8不支持RGBA写法导致遮罩不出现的问题，并对IE8以下浏览器做出提示；
+     2.修复FireFox下esc的问题；
+     3.增加关闭弹出层前的验证，防止esc键重复回调；
+
+   2018-06-26： 
+   
+     1.增加AMD支持，修复已知bug
    
    ...
 
