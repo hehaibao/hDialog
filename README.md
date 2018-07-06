@@ -18,6 +18,8 @@ http://www.hehaibao.com/uploads/hDialog/index.html [Tips: 博客更新可能不�
 
 ### 更多示例：
 
+(PS: 此插件中所有的参数都将用以下示例的方式给出来)
+
 	/*
 	 * 以下是单独的调用示例，你只需要自定义弹框的样式即可。
 	 *          - $(element).hDialog(); //默认调用弹框；
@@ -92,6 +94,10 @@ http://www.hehaibao.com/uploads/hDialog/index.html [Tips: 博客更新可能不�
      1.增加AMD支持，修复已知bug
    
    ...
+   
+### TODO
+
+  弹出层可自由拖拽（有时间的话 😝）
 
 ### 写在最后
 
