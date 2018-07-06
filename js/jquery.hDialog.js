@@ -2,7 +2,7 @@
 +-------------------------------------------------------------------
 * jQuery hDialog - 多功能弹出层插件
 +-------------------------------------------------------------------
-* @version 2.0.3
+* @version 2.0.4
 * @author haibao <hhb219@163.com> <http://www.hehaibao.com/>
 * github [https://github.com/hehaibao/hDialog]
 * MIT
@@ -25,6 +25,7 @@
 		timer = null;
 	var methods = {
 		op: {},
+		version: '2.0.4',
         init: function(options) {
            	return this.each(function() {
 				$el = $(this);
@@ -71,6 +72,12 @@
 			});
         },
         open: function() {
+			//检测是否IE8以下浏览器
+			if(methods.checkBrowserVersion()) {
+				//如果是，则改变遮罩背景色，并提示
+				this.op.modalBg = '#000000'; //为了兼容IE8不识别rgba写法
+				alert('系统检测到您正在使用ie8以下内核的浏览器，不能实现完美体验，请及时更新浏览器版本！');
+			}
 			var _self = this.op, w, h, t, l, m, headTpl = '', overlayTpl = '', iframeTpl = '', 
 				$o = _self.autoShow ? $el : $(_self.box),
 				w = parseInt(_self.width), 
@@ -78,7 +85,7 @@
 				m = "" + parseInt(-(h/2)) + 'px 0 0 ' + parseInt(-(w/2)) + "px";
         		
 			//显示前的回调
-			_self.beforeShow && this.fire.call(this, _self.beforeShow, event); 
+			_self.beforeShow && this.fire.call(this, _self.beforeShow); 
 			
 			//弹框位置
 			switch (_self.positions) {
@@ -142,7 +149,8 @@
 			}
         		
 			//支持ESC关闭
-			_self.escHide && $D.off('keyup').on('keyup', function() {
+			_self.escHide && $D.off('keyup').on('keyup', function(event) {
+				event = event || window.event;
 				var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
 				keyCode === 27 && methods.close();
 			});
@@ -153,19 +161,35 @@
 				_self = _this.op, 
 				$o = $(_self.box);
 			clearTimeout(timer); //清除定时器
+			if(!$o.is(':visible')){
+				return;
+			}
 			$o.removeAttr('class').addClass('animated '+_self.effect);
 			$o.hasClass(_self.effect) && setTimeout(function() { 
 				$o.removeAttr('style').hide();
 			}, 300);
 			$('#HOverlay, #HTitle, #'+_self.iframeId).remove();
 			setTimeout(function(){
-				_self.afterHide && _this.fire.call(_this, _self.afterHide, event);
+				_self.afterHide && _this.fire.call(_this, _self.afterHide);
 			}, 310);
 	    },
 	    fire: function(event, data) { 
 			if($.isFunction(event)) {
 				return event.call(this, data);
 			}
+		},
+		checkBrowserVersion: function() {
+			//检测浏览器版本，目的：对IE8以下做特殊处理
+			var DEFAULT_VERSION = 8,
+				ua = navigator.userAgent.toLowerCase(),
+				isIE = ua.indexOf("msie") > -1,
+				safariVersion,
+				flag = false;
+			if(isIE) {
+				safariVersion = ua.match(/msie ([\d.]+)/)[1];
+				flag = parseInt(safariVersion) <= DEFAULT_VERSION ? true : false;
+			}
+			return flag;
 		}
     };
     
