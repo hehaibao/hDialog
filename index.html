@@ -24,39 +24,39 @@
 			<div class="w50">
 				<h3>打开效果示例（需引入<a target="_blank" href="http://daneden.github.io/animate.css/animate.min.css">animate.css</a>）：</h3>
 				<div class="example">
-					<a class="bounceIn dialog">bounceIn</a>
-					<a class="bounceInDown dialog">bounceInDown</a>
-					<a class="bounceInLeft dialog">bounceInLeft</a>
-					<a class="bounceInRight dialog">bounceInRight</a>
-					<a class="bounceInUp dialog">bounceInUp</a>
-					<a class="rollIn dialog">rollIn</a>
-					<a class="fadeIn dialog">fadeIn</a>
-					<a class="fadeInUpBig dialog">fadeInUpBig</a>
-					<a class="lightSpeedIn dialog">lightSpeedIn</a>
-					<a class="flip dialog">flip</a>
-					<a class="flipInX dialog">flipInX</a>
-					<a class="flipInY dialog">flipInY</a>
-					<a class="rotateInDownLeft dialog">rotateInDownLeft</a>
-					<a class="rotateInDownRight dialog">rotateInDownRight</a>
-					<a class="rotateInUpLeft dialog">rotateInUpLeft</a>
-					<a class="rotateInUpRight dialog">rotateInUpRight</a>
-					<a class="rubberBand dialog">rubberBand</a>
-					<a class="zoomIn dialog">zoomIn</a>
-					<a class="zoomInDown dialog">zoomInDown</a>
-					<a class="zoomInLeft dialog">zoomInLeft</a>
-					<a class="zoomInRight dialog">zoomInRight</a>
-					<a class="zoomInUp dialog">zoomInUp</a>
-					<a class="flash dialog">flash</a>
-					<a class="pulse dialog">pulse</a>
-					<a class="swing dialog">swing</a>
-					<a class="tada dialog">tada</a>
-					<a class="jello dialog">jello</a>
-					<a class="shake dialog">shake</a>
-					<a class="wobble dialog">wobble</a>
-					<a class="slideInUp dialog">slideInUp</a>
-					<a class="slideInLeft dialog">slideInLeft</a>
-					<a class="slideInRight dialog">slideInRight</a>
-					<a class="slideInDown dialog">slideInDown</a>
+					<a data-type="bounceIn" class="dialog">bounceIn</a>
+					<a data-type="bounceInDown" class="dialog">bounceInDown</a>
+					<a data-type="bounceInLeft" class="dialog">bounceInLeft</a>
+					<a data-type="bounceInRight" class="dialog">bounceInRight</a>
+					<a data-type="bounceInUp" class="dialog">bounceInUp</a>
+					<a data-type="rollIn" class="dialog">rollIn</a>
+					<a data-type="fadeIn" class="dialog">fadeIn</a>
+					<a data-type="fadeInUpBig" class="dialog">fadeInUpBig</a>
+					<a data-type="lightSpeedIn" class="dialog">lightSpeedIn</a>
+					<a data-type="flip" class="dialog">flip</a>
+					<a data-type="flipInX" class="dialog">flipInX</a>
+					<a data-type="flipInY" class="dialog">flipInY</a>
+					<a data-type="rotateInDownLeft" class="dialog">rotateInDownLeft</a>
+					<a data-type="rotateInDownRight" class="dialog">rotateInDownRight</a>
+					<a data-type="rotateInUpLeft" class="dialog">rotateInUpLeft</a>
+					<a data-type="rotateInUpRight" class="dialog">rotateInUpRight</a>
+					<a data-type="rubberBand" class="dialog">rubberBand</a>
+					<a data-type="zoomIn" class="dialog">zoomIn</a>
+					<a data-type="zoomInDown" class="dialog">zoomInDown</a>
+					<a data-type="zoomInLeft" class="dialog">zoomInLeft</a>
+					<a data-type="zoomInRight" class="dialog">zoomInRight</a>
+					<a data-type="zoomInUp" class="dialog">zoomInUp</a>
+					<a data-type="flash" class="dialog">flash</a>
+					<a data-type="pulse" class="dialog">pulse</a>
+					<a data-type="swing" class="dialog">swing</a>
+					<a data-type="tada" class="dialog">tada</a>
+					<a data-type="jello" class="dialog">jello</a>
+					<a data-type="shake" class="dialog">shake</a>
+					<a data-type="wobble" class="dialog">wobble</a>
+					<a data-type="slideInUp" class="dialog">slideInUp</a>
+					<a data-type="slideInLeft" class="dialog">slideInLeft</a>
+					<a data-type="slideInRight" class="dialog">slideInRight</a>
+					<a data-type="slideInDown" class="dialog">slideInDown</a>
 				</div>
 			</div>
 			<div class="w50">
@@ -346,7 +346,8 @@
 </script>
 <script>
 $(function(){
-	$('.dialog').hDialog(); //打开效果调用
+	//打开效果调用，将动画效果的class放在data-type中即可
+	$('.dialog').hDialog();
 	
 	//页面加载完成后自动执行
 	$('#HBox').hDialog({title:'页面加载完成后自动执行', autoShow: true, height: 350});

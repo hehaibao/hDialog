@@ -2,7 +2,7 @@
 +-------------------------------------------------------------------
 * jQuery hDialog - 多功能弹出层插件
 +-------------------------------------------------------------------
-* @version 2.0.4
+* @version 2.0.5
 * @author haibao <hhb219@163.com> <http://www.hehaibao.com/>
 * github [https://github.com/hehaibao/hDialog]
 * MIT
@@ -21,15 +21,13 @@
 	var $D = $(document), 
 		$W = $(window), 
 		$B = $('body'),
-		$el,
 		timer = null;
 	var methods = {
 		op: {},
-		version: '2.0.4',
+		version: '2.0.5',
         init: function(options) {
-           	return this.each(function() {
-				$el = $(this);
-				var _O = null;
+			var $el = $(this);
+           	return this.each(function(i) {
 				var defaults = {
 						title: '',              	//弹框标题
 						box: '#HBox',               //弹框默认选择器
@@ -51,35 +49,38 @@
 						beforeShow: function() { }, //显示前的回调方法
 						afterHide: function() { }   //隐藏后的回调方法
 					};
-				_O = $.extend({}, defaults, options);
+				var _O = $.extend({}, defaults, options);
 
-				var _open = function(){
-					methods.op = _O;
-					methods.open();
-				}
 				if(_O.autoShow) {
 					//自动弹出
-					_open();
+					methods.op = _O;
+					methods.open($el);
 				} else {
 					//绑定click事件
-					$el.off('click').on('click', function(event) {
-						_open();
-					});
+					$el[i].onclick = (function(k){
+						return function() {
+							methods.op = _O;
+							methods.open($($el[k]));
+						}
+					})(i);
 				}
 
 				//自动关闭
 				_O.autoHide && methods.close();
 			});
         },
-        open: function() {
+        open: function($el) {
+			var _type = $el.attr('data-type') || 'fadeIn'; // 打开动画的样式名
+
 			//检测是否IE8以下浏览器
 			if(methods.checkBrowserVersion()) {
 				//如果是，则改变遮罩背景色，并提示
 				this.op.modalBg = '#000000'; //为了兼容IE8不识别rgba写法
 				alert('系统检测到您正在使用ie8以下内核的浏览器，不能实现完美体验，请及时更新浏览器版本！');
 			}
-			var _self = this.op, w, h, t, l, m, headTpl = '', overlayTpl = '', iframeTpl = '', 
-				$o = _self.autoShow ? $el : $(_self.box),
+			var _self = this.op,
+				t, l,
+				headTpl = '', overlayTpl = '', iframeTpl = '',
 				w = parseInt(_self.width), 
 				h = parseInt(_self.height), 
 				m = "" + parseInt(-(h/2)) + 'px 0 0 ' + parseInt(-(w/2)) + "px";
@@ -120,12 +121,13 @@
 			headTpl += '<a id="HCloseBtn" title="关闭"><span>&times;</span></a>';
 			
 			//iframe框架
-			if(_self.types == 2 && _self.iframeSrc != '') {
-				iframeTpl =  '<iframe id="'+_self.iframeId+'" width="'+w+'" height="'+h+'" frameborder="0" scrolling="auto" src="'+_self.iframeSrc+'"></iframe>';
+			if (_self.types == 2 && _self.iframeSrc != '') {
+				iframeTpl = '<iframe id="'+_self.iframeId+'" width="'+w+'" height="'+h+'" frameborder="0" scrolling="auto" src="'+_self.iframeSrc+'"></iframe>';
+				$(_self.box).hide(); // 隐藏框架外的其他元素
 			}
-			
+
 			//显示弹框
-			$B.stop().append(overlayTpl).find($o).css({
+			$B.stop().append(overlayTpl).find(_self.box).css({
 				backgroundColor: _self.boxBg,
 				position: 'fixed',
 				top: t,
@@ -133,19 +135,16 @@
 				zIndex: 999999,
 				margin: m,
 				width: w,
-				height: h
-			}).removeAttr('class').addClass('animated '+$el.attr("class")).prepend(headTpl+iframeTpl).show();
+				height: h,
+				overflow: 'auto'
+			}).removeAttr('class').addClass('animated '+_type).prepend(headTpl+iframeTpl).show();
         
 			//默认关闭
-			$o.modalHide ? $('#HOverlay, #HCloseBtn') : $('#HCloseBtn').off('click').on('click', function() { 
-				methods.close();
-			});
+			$(_self.box).modalHide ? $('#HOverlay, #HCloseBtn') : $('#HCloseBtn').off('click').on('click', function() { methods.close(); });
 			
 			//定时关闭
 			if(_self.hideTime != 0) {
-				timer = setTimeout(function() {
-					methods.close(); 
-				}, parseInt(_self.hideTime));
+				timer = setTimeout(function() { methods.close(); }, parseInt(_self.hideTime));
 			}
         		
 			//支持ESC关闭
@@ -168,7 +167,10 @@
 			$o.hasClass(_self.effect) && setTimeout(function() { 
 				$o.removeAttr('style').hide();
 			}, 300);
-			$('#HOverlay, #HTitle, #'+_self.iframeId).remove();
+			$('#HOverlay, #HTitle, #HCloseBtn').remove();
+			if(_self.types == 2) {
+				$('#'+_self.iframeId).remove();
+			}
 			setTimeout(function(){
 				_self.afterHide && _this.fire.call(_this, _self.afterHide);
 			}, 310);
